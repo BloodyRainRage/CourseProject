@@ -3,23 +3,21 @@ package com.baddragon;
 import com.baddragon.Exceptions.UnknownTypeOfCargoException;
 import com.baddragon.Port.Port;
 import com.baddragon.Schedule.Entry;
-import com.baddragon.Vessel.TestTmp;
-import com.baddragon.Vessel.TypeOfCargo;
+import com.baddragon.Schedule.EntryFactory.RandomEntryFactory;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        List<Entry> schedule = new LinkedList<Entry>();
-        TestTmp test = new TestTmp();
+        List<Entry> schedule = new LinkedList<>();
+        RandomEntryFactory randomEntry = new RandomEntryFactory();
         for (int i = 0; i < 20; i++){
             try {
-                schedule.add(test.randomEntry());
+                schedule.add(randomEntry.createEntry());
             } catch (UnknownTypeOfCargoException e) {
                 e.printStackTrace();
             }
@@ -27,7 +25,8 @@ public class Main {
 
         System.out.println("Random entry");
         for (Entry entry: schedule) {
-            System.out.println(entry);
+            System.out.println(entry.toString());
+            System.out.println("--------------");
         }
         System.out.println("------------");
 
@@ -35,53 +34,11 @@ public class Main {
             Port.getInstance().proceedWithUnloading(entry);
         }
 
-    }
+        System.out.println(Port.getInstance().getCargoQueue());
 
-//    public Entry randomEntry(){
-//        List<TypeOfCargo> types = new ArrayList<TypeOfCargo>();
-//        types.add(TypeOfCargo.BULK);
-//        types.add(TypeOfCargo.CONTAINER);
-//        types.add(TypeOfCargo.LIQUID);
-//
-//        Random random = new Random();
-//
-//        switch (types.get(random.nextInt(types.size()))){
-//            case BULK: return buildBulk();
-//            case CONTAINER: return buildContainer();
-//            case LIQUID: return buildLiquid();
-//            default:
-//                try {
-//                    throw new Exception("Unknown");
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//        }
-//
-//    }
-//
-//    public Entry buildContainer(){
-//        cargo++;
-//        return Entry.builder()
-//                    .type(TypeOfCargo.CONTAINER)
-//                    .vesselName("Cargovessel" + this.cargo)
-//                    .build();
-//
-//    }
-//
-//    public Entry buildLiquid(){
-//        liquid++;
-//        return Entry.builder()
-//                .type(TypeOfCargo.CONTAINER)
-//                .vesselName("Liquidvessel" + this.liquid)
-//                .build();
-//    }
-//
-//    public Entry buildBulk(){
-//        bulk++;
-//        return Entry.builder()
-//                .type(TypeOfCargo.CONTAINER)
-//                .vesselName("Bulkvessel" + this.bulk)
-//                .build();
-//    }
+        Long startDay = new Date().getTime();
+        System.out.println(new Date(startDay));
+
+    }
 
 }
