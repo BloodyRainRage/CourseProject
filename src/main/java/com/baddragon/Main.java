@@ -23,6 +23,8 @@ public class Main {
             }
         }
 
+        //Port.setCapacity(5, 5,5 );
+
         System.out.println("Random entry");
         for (Entry entry: schedule) {
             System.out.println(entry.toString());
@@ -36,8 +38,8 @@ public class Main {
 
         System.out.println(Port.getInstance().getCargoQueue());
 
-        Long startDay = new Date().getTime();
-        System.out.println(new Date(startDay));
+//        Long startDay = new Date().getTime();
+//        System.out.println(new Date(startDay));
 
     }
 

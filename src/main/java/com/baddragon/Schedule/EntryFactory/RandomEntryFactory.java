@@ -34,11 +34,11 @@ public class RandomEntryFactory implements EntryFactory{
     private Entry buildContainer(){
         cargo++;
         return Entry.builder()
-                .type(TypeOfCargo.CONTAINER)
-                .vesselName("Cargovessel" + this.cargo)
-                .dateOfArrivalAsLong(getRandomDateInRange())
-                .weight(getRandomWeight())
-                .willStayFor(getRandomUnloadTime())
+                    .type(TypeOfCargo.CONTAINER)
+                    .vesselName("Cargovessel" + this.cargo)
+                    .dateOfArrivalAsLong(getRandomDateInRange())
+                    .weight(getRandomWeight())
+                    .willStayFor(getRandomUnloadTime())
                 .build();
 
     }
@@ -46,22 +46,22 @@ public class RandomEntryFactory implements EntryFactory{
     private Entry buildLiquid(){
         liquid++;
         return Entry.builder()
-                .type(TypeOfCargo.LIQUID)
-                .vesselName("Liquidvessel" + this.liquid)
-                .dateOfArrivalAsLong(getRandomDateInRange())
-                .weight(getRandomWeight())
-                .willStayFor(getRandomUnloadTime())
+                    .type(TypeOfCargo.LIQUID)
+                    .vesselName("Liquidvessel" + this.liquid)
+                    .dateOfArrivalAsLong(getRandomDateInRange())
+                    .weight(getRandomWeight())
+                    .willStayFor(getRandomUnloadTime())
                 .build();
     }
 
     private Entry buildBulk(){
         bulk++;
         return Entry.builder()
-                .type(TypeOfCargo.BULK)
-                .vesselName("Bulkvessel" + this.bulk)
-                .dateOfArrivalAsLong(getRandomDateInRange())
-                .weight(getRandomWeight())
-                .willStayFor(getRandomUnloadTime())
+                    .type(TypeOfCargo.BULK)
+                    .vesselName("Bulkvessel" + this.bulk)
+                    .dateOfArrivalAsLong(getRandomDateInRange())
+                    .weight(getRandomWeight())
+                    .willStayFor(getRandomUnloadTime())
                 .build();
     }
 
