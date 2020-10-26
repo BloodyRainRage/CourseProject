@@ -1,5 +1,6 @@
 package com.baddragon.Port;
 
+import com.baddragon.Logger.Logger;
 import com.baddragon.Port.Cranes.BulkCrane;
 import com.baddragon.Port.Cranes.ContainerCrane;
 import com.baddragon.Port.Cranes.Crane;
@@ -8,91 +9,220 @@ import com.baddragon.Schedule.Entry;
 import com.baddragon.Vessel.TypeOfCargo;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class Port {
 
-    private static Port instance;
-
-    private static int containerCapacity, liquidCapacity, bulkCapacity;
-
-//    private Crane[] containerCranes = new ContainerCrane[3];
-//    private Crane[] liquidCranes = new LiquidCrane[4];
-//    private Crane[] bulkCranes = new BulkCrane[5];
+    private static Port instance = new Port();
+    private int containerCapacity, liquidCapacity, bulkCapacity;
+    private List<Crane> busyCranes = new LinkedList<>();
 
     private Map<TypeOfCargo, List<Crane>> cranes = new HashMap<>();
-    private Map<TypeOfCargo, Set<Entry>> queue = new HashMap<>();
+    private Map<TypeOfCargo, List<Entry>> queue = new HashMap<>();
+    private List<Entry> schedule;
 
-//    private List<Entry> liquidCargoQueue = new LinkedList<>();
-//    private List<Entry> bulkCargoQueue = new LinkedList<>();
-//    private List<Entry> containerCargoQueue = new LinkedList<>();
+    Logger logger = new Logger();
 
     private Long startDay;
     private Long endDay; //30 days after start
+    private Long today;
+
+
+    private int incrementer;
+    private Map<TypeOfCargo, Integer> penaltyMap = new HashMap<>();
+    int penalty = 0;
+    private Map<TypeOfCargo, Integer> amountOfEachType = new HashMap<>();
 
     private Port() {
         cranes.put(TypeOfCargo.LIQUID, new LinkedList<>());
         cranes.put(TypeOfCargo.BULK, new LinkedList<>());
         cranes.put(TypeOfCargo.CONTAINER, new LinkedList<>());
 
-        queue.put(TypeOfCargo.LIQUID, new HashSet<>());
-        queue.put(TypeOfCargo.BULK, new HashSet<>());
-        queue.put(TypeOfCargo.CONTAINER, new HashSet<>());
+        queue.put(TypeOfCargo.LIQUID, new LinkedList<>());
+        queue.put(TypeOfCargo.BULK, new LinkedList<>());
+        queue.put(TypeOfCargo.CONTAINER, new LinkedList<>());
 
-        if (containerCapacity == 0 || liquidCapacity == 0 || bulkCapacity == 0) {
-            containerCapacity = 3;
-            liquidCapacity = 4;
-            bulkCapacity = 5;
-        }
+        containerCapacity = 1;
+        liquidCapacity = 1;
+        bulkCapacity = 1;
+
 
         for (int i = 0; i < containerCapacity; i++) {
             cranes.get(TypeOfCargo.CONTAINER).add(new ContainerCrane());
-            //containerCranes[i] = new ContainerCrane();
         }
 
         for (int i = 0; i < liquidCapacity; i++) {
             cranes.get(TypeOfCargo.LIQUID).add(new LiquidCrane());
-            //liquidCranes[i] = new LiquidCrane();
         }
 
         for (int i = 0; i < bulkCapacity; i++) {
             cranes.get(TypeOfCargo.BULK).add(new BulkCrane());
-            //bulkCranes[i] = new BulkCrane();
         }
 
         startDay = new Date().getTime();
+        today = new Date().getTime();
         long aDay = TimeUnit.DAYS.toMillis(1);
         endDay = startDay + aDay * 30;
-        //System.out.println(new Date(startDay) + "\n" + new Date(endDay));
 
+        incrementer = 1;
+
+        penaltyMap.put(TypeOfCargo.LIQUID, 0);
+        penaltyMap.put(TypeOfCargo.BULK, 0);
+        penaltyMap.put(TypeOfCargo.CONTAINER, 0);
     }
 
     public static Port getInstance() {
-        if (instance == null) {
-            instance = new Port();
-        }
         return instance;
     }
 
-    public static void setCapacity(int containerCapacity, int liquidCapacity, int bulkCapacity) {
-        containerCapacity = containerCapacity;
-        liquidCapacity = liquidCapacity;
-        bulkCapacity = bulkCapacity;
+
+    public void start() {
+        penalty = 0;
+        penaltyMap.put(TypeOfCargo.LIQUID, 0);
+        penaltyMap.put(TypeOfCargo.BULK, 0);
+        penaltyMap.put(TypeOfCargo.CONTAINER, 0);
+        today = startDay;
+        while (!schedule.isEmpty()) {
+            processQueue();
+            List<Integer> idToRemove = new LinkedList<>();
+            for (int i = 0; i < schedule.size(); i++) {
+                if (compareDates(schedule.get(i).getScheduleDeviation(), today)) {
+                    int out = takeCrane(schedule.get(i));
+                    if (out == -1) queue.get(schedule.get(i).getType())
+                            .add(schedule.get(i));
+                    if (out == 0 || out == -1) {
+                        idToRemove.add(i);
+                    }
+                }
+            }
+
+            removeFromListAt(schedule, idToRemove);
+
+            nextDay();
+        }
+
+        while (queueIsNotEmpty()) {
+            processQueue();
+            nextDay();
+        }
+
+        while (!busyCranes.isEmpty()) {
+            nextDay();
+        }
+
+        System.out.println(penalty);
+        logger.writeStatistics(amountOfEachType, penaltyMap, cranes,
+                new Date(startDay),
+                new Date(today),
+                new Date(endDay),
+                incrementer);
+        logger.writeCraneLog("\n----Next Record----\n");
     }
 
-    public void proceedWithUnloading(Entry entry) {
-        String noAvailableCranesMessage = "no available cranes for " + entry.getVesselName() +
-                " with type " + entry.getType();
-        if (takeCrane(entry) == -1) {
-            System.out.println(noAvailableCranesMessage);
-        } else moveToQueue(entry);
+    private void processQueue() {
+
+        Set<TypeOfCargo> listOfTypes = queue.keySet();
+
+        if (!queue.get(TypeOfCargo.LIQUID).isEmpty()) {
+            List<Integer> idToRemove = new LinkedList<>();
+            for (int i = 0; i < queue.get(TypeOfCargo.LIQUID).size(); i++) {
+                int out = takeCrane(queue.get(TypeOfCargo.LIQUID).get(i));
+                if (out == 0) {
+                    idToRemove.add(i);
+                }
+            }
+            removeFromListAt(queue.get(TypeOfCargo.LIQUID), idToRemove);
+        }
+
+        if (!queue.get(TypeOfCargo.BULK).isEmpty()) {
+            List<Integer> idToRemove = new LinkedList<>();
+            for (int i = 0; i < queue.get(TypeOfCargo.BULK).size(); i++) {
+                int out = takeCrane(queue.get(TypeOfCargo.BULK).get(i));
+                if (out == 0) {
+                    idToRemove.add(i);
+                }
+            }
+            removeFromListAt(queue.get(TypeOfCargo.BULK), idToRemove);
+        }
+
+        if (!queue.get(TypeOfCargo.CONTAINER).isEmpty()) {
+            List<Integer> idToRemove = new LinkedList<>();
+            for (int i = 0; i < queue.get(TypeOfCargo.CONTAINER).size(); i++) {
+                int out = takeCrane(queue.get(TypeOfCargo.CONTAINER).get(i));
+                if (out == 0) {
+                    idToRemove.add(i);
+                }
+            }
+            removeFromListAt(queue.get(TypeOfCargo.CONTAINER), idToRemove);
+        }
+
+    }
+
+    public void removeFromListAt(List listToRemoveFrom, List<Integer> listOfIds) {
+        if (!listOfIds.isEmpty())
+            for (Integer integer : listOfIds) {
+                listToRemoveFrom.remove(integer.intValue());
+                moveIndexes(integer, listOfIds);
+            }
+    }
+
+    public void moveIndexes(Integer val, List<Integer> indexes) {
+        for (int i = 0; i < indexes.size(); i++) {
+            if (indexes.get(i) > val)
+                indexes.set(i, indexes.get(i) - 1);
+        }
+    }
+
+    private boolean queueIsNotEmpty() {
+
+        return !queue.get(TypeOfCargo.LIQUID).isEmpty() ||
+                !queue.get(TypeOfCargo.BULK).isEmpty() ||
+                !queue.get(TypeOfCargo.CONTAINER).isEmpty();
+    }
+
+    private void nextDay() {
+        List<Integer> idToRemove = new ArrayList<>();
+        for (int i = 0; i < busyCranes.size(); ++i) {
+            if (busyCranes.get(i).getEntry() == null) continue;
+            busyCranes.get(i).completeDay(incrementer);
+            if (busyCranes.get(i).getDaysPassed() > busyCranes.get(i).getEntry().getWillStayFor()) {
+                this.penalty += 1000;
+                int penalty = penaltyMap.get(busyCranes.get(i).getEntry().getType()) + 1000;
+                penaltyMap.put(busyCranes.get(i).getEntry().getType(), penalty);
+
+            }
+            if (busyCranes.get(i).getDaysPassed() >= busyCranes.get(i).getEntry().getDaysWithDelay()) {
+                idToRemove.add(i);
+                logger.writeCraneLog("[REL]  " + busyCranes.get(i).takenBy() + " was released on "
+                        + Entry.dateFormatter.format(new Date(today)));
+                busyCranes.get(i).setFree();
+            }
+        }
+
+        removeFromListAt(busyCranes, idToRemove);
+
+        today += TimeUnit.DAYS.toMillis(incrementer);
+    }
+
+    //returns true if date1 less of eq date2
+    public boolean compareDates(Long date1, Long date2) {
+        Date dt1 = new Date(date1);
+        Date dt2 = new Date(date2);
+
+        return !dt1.after(dt2);
     }
 
     protected int takeCrane(Entry entry) {
+
+        if (!compareDates(entry.getScheduleDeviation(), today)) return -2;
+
         for (Crane crane : cranes.get(entry.getType())) {
             if (!crane.isTaken()) {
                 crane.setTaken(entry);
                 System.out.println(crane.takenBy());
+                logger.writeCraneLog("[TAKE] " + crane.takenBy() + " on " + Entry.dateFormatter.format(new Date(today)));
+                busyCranes.add(crane);
                 return 0;
             }
         }
@@ -100,61 +230,91 @@ public class Port {
         return -1;
     }
 
-    protected void moveToQueue(Entry entry) {
 
-        queue.get(entry.getType()).add(entry);
-
+    public void setBulkCapacity(int capacity) {
+        BulkCrane.lastId = 0;
+        cranes.put(TypeOfCargo.BULK, new LinkedList<>());
+        for (int i = 0; i < capacity; i++) {
+            cranes.get(TypeOfCargo.BULK).add(new BulkCrane());
+        }
     }
 
-//    protected int takeLiquidCrane(Entry entry) {
-//        for (Crane crane : liquidCranes) {
-//            if (!crane.isTaken()) {
-//                crane.setTaken(entry);
-//                System.out.println(crane.takenBy());
-//                return 0;
-//            }
-//        }
-//
-//        return -1;
-//    }
-//
-//    protected int takeBulkCrane(Entry entry) {
-//        for (Crane crane : bulkCranes) {
-//            if (!crane.isTaken()) {
-//                crane.setTaken(entry);
-//                System.out.println(crane.takenBy());
-//                return 0;
-//            }
-//        }
-//
-//        return -1;
-//    }
+    public void setContainerCapacity(int capacity) {
+        ContainerCrane.lastId = 0;
+        cranes.put(TypeOfCargo.CONTAINER, new LinkedList<>());
+        for (int i = 0; i < capacity; i++) {
+            cranes.get(TypeOfCargo.CONTAINER).add(new BulkCrane());
+        }
+    }
 
-    public String getCargoQueue() {
-        String str = "Container Cargo queue:\n";
-        for (Entry entry : queue.get(TypeOfCargo.CONTAINER)) {
-            str = str.concat(entry + "\n\n");
+    public void setLiquidCapacity(int capacity) {
+        LiquidCrane.lastId = 0;
+        cranes.put(TypeOfCargo.LIQUID, new LinkedList<>());
+        for (int i = 0; i < capacity; i++) {
+            cranes.get(TypeOfCargo.LIQUID).add(new LiquidCrane());
         }
-        str = str.concat("\n+-----------------------+\n");
-        str = str.concat("Luquid Cargo queue:\n");
-        for (Entry entry : queue.get(TypeOfCargo.LIQUID)) {
-            str = str.concat(entry + "\n\n");
-        }
-        str = str.concat("\n+-----------------------+\n");
-        str = str.concat("Bulk Cargo queue:\n");
-        for (Entry entry : queue.get(TypeOfCargo.BULK)) {
-            str = str.concat(entry + "\n\n");
-        }
+    }
 
-        return str;
+
+    public Integer getPenalty() {
+        return penaltyMap.get(TypeOfCargo.LIQUID) +
+                penaltyMap.get(TypeOfCargo.CONTAINER) +
+                penaltyMap.get(TypeOfCargo.BULK);
+    }
+
+    public void setSchedule(List<Entry> schedule) {
+        this.schedule = new LinkedList<>(schedule);
+        logger.writeSchedule(schedule);
+        for (TypeOfCargo type : TypeOfCargo.values()) {
+            amountOfEachType.put(type, 0);
+        }
+        for (Entry entry : schedule) {
+            int val = amountOfEachType.get(entry.getType());
+            amountOfEachType.put(entry.getType(), val + 1);
+        }
+    }
+
+    public Map<TypeOfCargo, Integer> getPenaltyMap() {
+        return penaltyMap;
     }
 
     public Long getStartDay() {
         return startDay;
     }
 
+    public void setStartDay(Long startDay) {
+        this.startDay = startDay;
+    }
+
     public Long getEndDay() {
         return endDay;
     }
 
+    public void setEndDay(Long endDay) {
+        this.endDay = endDay;
+    }
+
+    public Long getToday() {
+        return today;
+    }
+
+    public void setToday(Long today) {
+        this.today = today;
+    }
+
+    public void setIncrementer(int incrementer) {
+        this.incrementer = incrementer;
+    }
+
+    public int getContainerCapacity() {
+        return containerCapacity;
+    }
+
+    public int getLiquidCapacity() {
+        return liquidCapacity;
+    }
+
+    public int getBulkCapacity() {
+        return bulkCapacity;
+    }
 }

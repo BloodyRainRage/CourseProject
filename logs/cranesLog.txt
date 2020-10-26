@@ -1,0 +1,129 @@
+[TAKE] Cargo Crane 	#1 taken by Cargovessel1 	CONTAINER on 26:10:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel3 	BULK on 04:11:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel2 	LIQUID on 04:11:2020
+[REL]  Cargo Crane 	#1 taken by Cargovessel1 	CONTAINER was released on 14:11:2020
+[TAKE] Cargo Crane 	#1 taken by Cargovessel8 	CONTAINER on 15:11:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel2 	LIQUID was released on 25:11:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel4 	LIQUID on 26:11:2020
+[REL]  Bulk Crane 	#1 taken by Bulkvessel3 	BULK was released on 27:11:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel5 	BULK on 28:11:2020
+[REL]  Cargo Crane 	#1 taken by Cargovessel8 	CONTAINER was released on 07:12:2020
+[TAKE] Cargo Crane 	#1 taken by Cargovessel6 	CONTAINER on 08:12:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel4 	LIQUID was released on 09:12:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel1 	LIQUID on 10:12:2020
+[REL]  Bulk Crane 	#1 taken by Bulkvessel5 	BULK was released on 21:12:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel1 	BULK on 22:12:2020
+[REL]  Cargo Crane 	#1 taken by Cargovessel6 	CONTAINER was released on 22:12:2020
+[TAKE] Cargo Crane 	#1 taken by Cargovessel2 	CONTAINER on 23:12:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel1 	LIQUID was released on 31:12:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel5 	LIQUID on 01:01:2020
+[REL]  Cargo Crane 	#1 taken by Cargovessel2 	CONTAINER was released on 09:01:2021
+[TAKE] Cargo Crane 	#1 taken by Cargovessel7 	CONTAINER on 10:01:2021
+[REL]  Bulk Crane 	#1 taken by Bulkvessel1 	BULK was released on 10:01:2021
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel2 	BULK on 11:01:2021
+[REL]  Liquid Crane 	#1 taken by Liquidvessel5 	LIQUID was released on 21:01:2021
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel3 	LIQUID on 22:01:2021
+[REL]  Cargo Crane 	#1 taken by Cargovessel7 	CONTAINER was released on 30:01:2021
+[REL]  Bulk Crane 	#1 taken by Bulkvessel2 	BULK was released on 30:01:2021
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel6 	BULK on 31:01:2021
+[TAKE] Cargo Crane 	#1 taken by Cargovessel5 	CONTAINER on 31:01:2021
+[REL]  Liquid Crane 	#1 taken by Liquidvessel3 	LIQUID was released on 11:02:2021
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel6 	LIQUID on 12:02:2021
+[REL]  Cargo Crane 	#1 taken by Cargovessel5 	CONTAINER was released on 12:02:2021
+[TAKE] Cargo Crane 	#1 taken by Cargovessel4 	CONTAINER on 13:02:2021
+[REL]  Bulk Crane 	#1 taken by Bulkvessel6 	BULK was released on 20:02:2021
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel4 	BULK on 21:02:2021
+[REL]  Liquid Crane 	#1 taken by Liquidvessel6 	LIQUID was released on 02:03:2021
+[REL]  Cargo Crane 	#1 taken by Cargovessel4 	CONTAINER was released on 05:03:2021
+[TAKE] Cargo Crane 	#1 taken by Cargovessel3 	CONTAINER on 06:03:2021
+[REL]  Bulk Crane 	#1 taken by Bulkvessel4 	BULK was released on 11:03:2021
+[REL]  Cargo Crane 	#1 taken by Cargovessel3 	CONTAINER was released on 29:03:2021
+
+----Next Record----
+
+[TAKE] Bulk Crane 	#3 taken by Cargovessel1 	CONTAINER on 26:10:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel8 	CONTAINER on 26:10:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel3 	BULK on 04:11:2020
+[TAKE] Bulk Crane 	#2 taken by Bulkvessel5 	BULK on 04:11:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel2 	LIQUID on 04:11:2020
+[TAKE] Liquid Crane 	#2 taken by Liquidvessel4 	LIQUID on 08:11:2020
+[REL]  Bulk Crane 	#3 taken by Cargovessel1 	CONTAINER was released on 14:11:2020
+[TAKE] Bulk Crane 	#3 taken by Cargovessel6 	CONTAINER on 15:11:2020
+[REL]  Bulk Crane 	#4 taken by Cargovessel8 	CONTAINER was released on 17:11:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel2 	CONTAINER on 18:11:2020
+[REL]  Liquid Crane 	#2 taken by Liquidvessel4 	LIQUID was released on 21:11:2020
+[TAKE] Liquid Crane 	#2 taken by Liquidvessel1 	LIQUID on 22:11:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel2 	LIQUID was released on 25:11:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel5 	LIQUID on 26:11:2020
+[REL]  Bulk Crane 	#1 taken by Bulkvessel3 	BULK was released on 27:11:2020
+[REL]  Bulk Crane 	#2 taken by Bulkvessel5 	BULK was released on 27:11:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel1 	BULK on 28:11:2020
+[TAKE] Bulk Crane 	#2 taken by Bulkvessel2 	BULK on 28:11:2020
+[REL]  Bulk Crane 	#3 taken by Cargovessel6 	CONTAINER was released on 29:11:2020
+[TAKE] Bulk Crane 	#3 taken by Cargovessel7 	CONTAINER on 30:11:2020
+[REL]  Bulk Crane 	#4 taken by Cargovessel2 	CONTAINER was released on 05:12:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel5 	CONTAINER on 06:12:2020
+[REL]  Liquid Crane 	#2 taken by Liquidvessel1 	LIQUID was released on 13:12:2020
+[TAKE] Liquid Crane 	#2 taken by Liquidvessel3 	LIQUID on 14:12:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel5 	LIQUID was released on 16:12:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel6 	LIQUID on 17:12:2020
+[REL]  Bulk Crane 	#1 taken by Bulkvessel1 	BULK was released on 17:12:2020
+[REL]  Bulk Crane 	#2 taken by Bulkvessel2 	BULK was released on 17:12:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel6 	BULK on 18:12:2020
+[TAKE] Bulk Crane 	#2 taken by Bulkvessel4 	BULK on 18:12:2020
+[REL]  Bulk Crane 	#4 taken by Cargovessel5 	CONTAINER was released on 18:12:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel4 	CONTAINER on 19:12:2020
+[REL]  Bulk Crane 	#3 taken by Cargovessel7 	CONTAINER was released on 20:12:2020
+[TAKE] Bulk Crane 	#3 taken by Cargovessel3 	CONTAINER on 21:12:2020
+[REL]  Liquid Crane 	#2 taken by Liquidvessel3 	LIQUID was released on 03:01:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel6 	LIQUID was released on 04:01:2021
+[REL]  Bulk Crane 	#2 taken by Bulkvessel4 	BULK was released on 05:01:2021
+[REL]  Bulk Crane 	#1 taken by Bulkvessel6 	BULK was released on 07:01:2021
+[REL]  Bulk Crane 	#4 taken by Cargovessel4 	CONTAINER was released on 08:01:2021
+[REL]  Bulk Crane 	#3 taken by Cargovessel3 	CONTAINER was released on 13:01:2021
+
+----Next Record----
+
+[TAKE] Bulk Crane 	#3 taken by Cargovessel1 	CONTAINER on 26:10:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel8 	CONTAINER on 26:10:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel3 	BULK on 04:11:2020
+[TAKE] Bulk Crane 	#2 taken by Bulkvessel5 	BULK on 04:11:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel2 	LIQUID on 04:11:2020
+[TAKE] Liquid Crane 	#2 taken by Liquidvessel4 	LIQUID on 08:11:2020
+[REL]  Bulk Crane 	#3 taken by Cargovessel1 	CONTAINER was released on 14:11:2020
+[TAKE] Bulk Crane 	#3 taken by Cargovessel6 	CONTAINER on 15:11:2020
+[REL]  Bulk Crane 	#4 taken by Cargovessel8 	CONTAINER was released on 17:11:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel2 	CONTAINER on 18:11:2020
+[REL]  Liquid Crane 	#2 taken by Liquidvessel4 	LIQUID was released on 21:11:2020
+[TAKE] Liquid Crane 	#2 taken by Liquidvessel1 	LIQUID on 22:11:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel2 	LIQUID was released on 25:11:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel5 	LIQUID on 26:11:2020
+[REL]  Bulk Crane 	#1 taken by Bulkvessel3 	BULK was released on 27:11:2020
+[REL]  Bulk Crane 	#2 taken by Bulkvessel5 	BULK was released on 27:11:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel1 	BULK on 28:11:2020
+[TAKE] Bulk Crane 	#2 taken by Bulkvessel2 	BULK on 28:11:2020
+[REL]  Bulk Crane 	#3 taken by Cargovessel6 	CONTAINER was released on 29:11:2020
+[TAKE] Bulk Crane 	#3 taken by Cargovessel7 	CONTAINER on 30:11:2020
+[REL]  Bulk Crane 	#4 taken by Cargovessel2 	CONTAINER was released on 05:12:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel5 	CONTAINER on 06:12:2020
+[REL]  Liquid Crane 	#2 taken by Liquidvessel1 	LIQUID was released on 13:12:2020
+[TAKE] Liquid Crane 	#2 taken by Liquidvessel3 	LIQUID on 14:12:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel5 	LIQUID was released on 16:12:2020
+[TAKE] Liquid Crane 	#1 taken by Liquidvessel6 	LIQUID on 17:12:2020
+[REL]  Bulk Crane 	#1 taken by Bulkvessel1 	BULK was released on 17:12:2020
+[REL]  Bulk Crane 	#2 taken by Bulkvessel2 	BULK was released on 17:12:2020
+[TAKE] Bulk Crane 	#1 taken by Bulkvessel6 	BULK on 18:12:2020
+[TAKE] Bulk Crane 	#2 taken by Bulkvessel4 	BULK on 18:12:2020
+[REL]  Bulk Crane 	#4 taken by Cargovessel5 	CONTAINER was released on 18:12:2020
+[TAKE] Bulk Crane 	#4 taken by Cargovessel4 	CONTAINER on 19:12:2020
+[REL]  Bulk Crane 	#3 taken by Cargovessel7 	CONTAINER was released on 20:12:2020
+[TAKE] Bulk Crane 	#3 taken by Cargovessel3 	CONTAINER on 21:12:2020
+[REL]  Liquid Crane 	#2 taken by Liquidvessel3 	LIQUID was released on 03:01:2020
+[REL]  Liquid Crane 	#1 taken by Liquidvessel6 	LIQUID was released on 04:01:2021
+[REL]  Bulk Crane 	#2 taken by Bulkvessel4 	BULK was released on 05:01:2021
+[REL]  Bulk Crane 	#1 taken by Bulkvessel6 	BULK was released on 07:01:2021
+[REL]  Bulk Crane 	#4 taken by Cargovessel4 	CONTAINER was released on 08:01:2021
+[REL]  Bulk Crane 	#3 taken by Cargovessel3 	CONTAINER was released on 13:01:2021
+
+----Next Record----
+

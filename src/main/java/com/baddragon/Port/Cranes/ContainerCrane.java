@@ -2,7 +2,7 @@ package com.baddragon.Port.Cranes;
 
 public class ContainerCrane extends Crane {
 
-    private static long lastId;
+    public static long lastId;
     private long id;
 
     public ContainerCrane() {
@@ -13,8 +13,8 @@ public class ContainerCrane extends Crane {
 
     public String takenBy() {
         if (takenBy != null)
-            return "Cargo Crane #" + id + " taken by " +
-                    takenBy.getVesselName() + " " + takenBy.getType();
+            return "Cargo Crane \t#" + id + " taken by " +
+                    takenBy.getVesselName() + " \t" + takenBy.getType();
 
         return "Cargo Crane #" + id + " taken by none";
     }
