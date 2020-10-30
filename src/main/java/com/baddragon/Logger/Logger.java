@@ -19,9 +19,11 @@ public class Logger {
         try {
             FileWriter craneFileWriter = new FileWriter(craneLog);
             FileWriter scheduleFileWriter = new FileWriter(scheduleLog);
+            FileWriter statFileWriter = new FileWriter(statisticsLog);
 
             craneFileWriter.write("");
             scheduleFileWriter.write("");
+            statFileWriter.write("");
 
             craneFileWriter.close();
             scheduleFileWriter.close();

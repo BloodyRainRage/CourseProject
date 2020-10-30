@@ -76,6 +76,12 @@ public class Port {
         return instance;
     }
 
+    public void setParameters(int incrementer, int liquidCapacity, int bulkCapacity, int containerCapacity){
+        this.incrementer = incrementer;
+        setLiquidCapacity(liquidCapacity);
+        setBulkCapacity(bulkCapacity);
+        setContainerCapacity(containerCapacity);
+    }
 
     public void start() {
         penalty = 0;

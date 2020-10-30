@@ -1,17 +1,17 @@
 Simulation statistics:
-Simulation start date:        	Mon Oct 26 20:02:16 MSK 2020
-Simulation expected end date: 	Wed Nov 25 20:02:16 MSK 2020
-Simulation end date:          	Tue Mar 30 20:02:16 MSK 2021
+Simulation start date:        	Wed Oct 28 21:33:14 MSK 2020
+Simulation expected end date: 	Fri Nov 27 21:33:14 MSK 2020
+Simulation end date:          	Fri Apr 09 21:33:14 MSK 2021
 Incrementer 1
 Amount of vehicles of each type:
 LIQUID 	6
 BULK 	6
 CONTAINER 	8
 Penalties:
-LIQUID 	20000
-BULK 	42000
-CONTAINER 	44000
-Sum penalty 106000
+LIQUID 	34000
+BULK 	30000
+CONTAINER 	47000
+Sum penalty 111000
 Amount of cranes:
 LIQUID 	1
 BULK 	1
@@ -19,19 +19,19 @@ CONTAINER 	1
 ----End of record----
 
 Simulation statistics:
-Simulation start date:        	Mon Oct 26 20:02:16 MSK 2020
-Simulation expected end date: 	Wed Nov 25 20:02:16 MSK 2020
-Simulation end date:          	Thu Jan 14 20:02:16 MSK 2021
+Simulation start date:        	Wed Oct 28 21:33:14 MSK 2020
+Simulation expected end date: 	Fri Nov 27 21:33:14 MSK 2020
+Simulation end date:          	Fri Jan 29 21:33:14 MSK 2021
 Incrementer 1
 Amount of vehicles of each type:
 LIQUID 	6
 BULK 	6
 CONTAINER 	8
 Penalties:
-LIQUID 	20000
-BULK 	42000
-CONTAINER 	44000
-Sum penalty 106000
+LIQUID 	34000
+BULK 	30000
+CONTAINER 	47000
+Sum penalty 111000
 Amount of cranes:
 LIQUID 	2
 BULK 	2
@@ -39,19 +39,19 @@ CONTAINER 	2
 ----End of record----
 
 Simulation statistics:
-Simulation start date:        	Mon Oct 26 20:02:16 MSK 2020
-Simulation expected end date: 	Wed Nov 25 20:02:16 MSK 2020
-Simulation end date:          	Thu Jan 14 20:02:16 MSK 2021
+Simulation start date:        	Wed Oct 28 21:33:14 MSK 2020
+Simulation expected end date: 	Fri Nov 27 21:33:14 MSK 2020
+Simulation end date:          	Fri Jan 29 21:33:14 MSK 2021
 Incrementer 1
 Amount of vehicles of each type:
 LIQUID 	6
 BULK 	6
 CONTAINER 	8
 Penalties:
-LIQUID 	20000
-BULK 	42000
-CONTAINER 	44000
-Sum penalty 106000
+LIQUID 	34000
+BULK 	30000
+CONTAINER 	47000
+Sum penalty 111000
 Amount of cranes:
 LIQUID 	2
 BULK 	2
