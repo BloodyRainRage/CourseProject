@@ -1,200 +1,200 @@
-Date of arrival:          30:10:2020
-Deviated date of arrival: 29:10:2020
-Time of arrival:          06:37:23
-Vessel name:              Bulkvessel2
-Status:                   IN_TRANSIT
-Type of cargo:            BULK
-Weight of cargo:          1714.5 kg
-Planned days to unload:   13
-Actual days to unload:    22
-
-Date of arrival:          30:10:2020
-Deviated date of arrival: 31:10:2020
-Time of arrival:          07:45:14
-Vessel name:              Liquidvessel6
-Status:                   IN_TRANSIT
-Type of cargo:            LIQUID
-Weight of cargo:          2096.0 kg
-Planned days to unload:   16
-Actual days to unload:    22
-
-Date of arrival:          04:11:2020
-Deviated date of arrival: 03:11:2020
-Time of arrival:          01:16:01
-Vessel name:              Bulkvessel5
-Status:                   IN_TRANSIT
-Type of cargo:            BULK
-Weight of cargo:          2674.0 kg
-Planned days to unload:   14
-Actual days to unload:    17
-
-Date of arrival:          05:11:2020
-Deviated date of arrival: 07:11:2020
-Time of arrival:          18:46:51
+Date of arrival:          05:12:2020
+Deviated date of arrival: 01:12:2020
+Time of arrival:          13:18:09
 Vessel name:              Cargovessel3
 Status:                   IN_TRANSIT
 Type of cargo:            CONTAINER
-Weight of cargo:          2902.3 kg
-Planned days to unload:   12
+Weight of cargo:          3972.3 kg
+Planned days to unload:   16
 Actual days to unload:    18
 
-Date of arrival:          08:11:2020
-Deviated date of arrival: 02:11:2020
-Time of arrival:          15:46:34
-Vessel name:              Cargovessel5
-Status:                   IN_TRANSIT
-Type of cargo:            CONTAINER
-Weight of cargo:          1690.7 kg
-Planned days to unload:   16
-Actual days to unload:    17
-
-Date of arrival:          10:11:2020
-Deviated date of arrival: 15:11:2020
-Time of arrival:          17:43:53
-Vessel name:              Bulkvessel6
-Status:                   IN_TRANSIT
-Type of cargo:            BULK
-Weight of cargo:          4951.8 kg
-Planned days to unload:   15
-Actual days to unload:    19
-
-Date of arrival:          11:11:2020
-Deviated date of arrival: 08:11:2020
-Time of arrival:          12:38:33
-Vessel name:              Cargovessel1
-Status:                   IN_TRANSIT
-Type of cargo:            CONTAINER
-Weight of cargo:          3682.9 kg
-Planned days to unload:   15
-Actual days to unload:    21
-
-Date of arrival:          12:11:2020
-Deviated date of arrival: 08:11:2020
-Time of arrival:          03:22:37
-Vessel name:              Liquidvessel2
-Status:                   IN_TRANSIT
-Type of cargo:            LIQUID
-Weight of cargo:          3487.9 kg
-Planned days to unload:   14
-Actual days to unload:    21
-
-Date of arrival:          12:11:2020
-Deviated date of arrival: 14:11:2020
-Time of arrival:          17:50:47
-Vessel name:              Cargovessel2
-Status:                   IN_TRANSIT
-Type of cargo:            CONTAINER
-Weight of cargo:          3659.3 kg
-Planned days to unload:   13
-Actual days to unload:    22
-
-Date of arrival:          14:11:2020
-Deviated date of arrival: 07:11:2020
-Time of arrival:          11:37:26
-Vessel name:              Bulkvessel1
-Status:                   IN_TRANSIT
-Type of cargo:            BULK
-Weight of cargo:          4010.4 kg
-Planned days to unload:   18
-Actual days to unload:    20
-
-Date of arrival:          16:11:2020
-Deviated date of arrival: 19:11:2020
-Time of arrival:          01:20:33
-Vessel name:              Cargovessel6
-Status:                   IN_TRANSIT
-Type of cargo:            CONTAINER
-Weight of cargo:          4514.6 kg
-Planned days to unload:   13
-Actual days to unload:    16
-
-Date of arrival:          16:11:2020
-Deviated date of arrival: 16:11:2020
-Time of arrival:          19:43:13
-Vessel name:              Liquidvessel5
-Status:                   IN_TRANSIT
-Type of cargo:            LIQUID
-Weight of cargo:          2314.4 kg
-Planned days to unload:   19
-Actual days to unload:    21
-
-Date of arrival:          18:11:2020
-Deviated date of arrival: 16:11:2020
-Time of arrival:          08:10:03
-Vessel name:              Liquidvessel3
-Status:                   IN_TRANSIT
-Type of cargo:            LIQUID
-Weight of cargo:          4617.8 kg
-Planned days to unload:   18
-Actual days to unload:    25
-
-Date of arrival:          19:11:2020
-Deviated date of arrival: 20:11:2020
-Time of arrival:          19:59:55
-Vessel name:              Liquidvessel4
-Status:                   IN_TRANSIT
-Type of cargo:            LIQUID
-Weight of cargo:          4193.3 kg
-Planned days to unload:   14
-Actual days to unload:    18
-
-Date of arrival:          20:11:2020
-Deviated date of arrival: 20:11:2020
-Time of arrival:          20:05:18
-Vessel name:              Bulkvessel3
-Status:                   IN_TRANSIT
-Type of cargo:            BULK
-Weight of cargo:          2362.0 kg
-Planned days to unload:   16
-Actual days to unload:    22
-
-Date of arrival:          21:11:2020
-Deviated date of arrival: 16:11:2020
-Time of arrival:          11:54:50
-Vessel name:              Cargovessel8
-Status:                   IN_TRANSIT
-Type of cargo:            CONTAINER
-Weight of cargo:          3852.2000000000003 kg
-Planned days to unload:   13
-Actual days to unload:    21
-
-Date of arrival:          21:11:2020
-Deviated date of arrival: 18:11:2020
-Time of arrival:          13:04:23
-Vessel name:              Cargovessel4
-Status:                   IN_TRANSIT
-Type of cargo:            CONTAINER
-Weight of cargo:          4024.4 kg
-Planned days to unload:   16
-Actual days to unload:    21
-
-Date of arrival:          21:11:2020
-Deviated date of arrival: 24:11:2020
-Time of arrival:          21:03:50
+Date of arrival:          06:12:2020
+Deviated date of arrival: 29:11:2020
+Time of arrival:          05:10:26
 Vessel name:              Cargovessel7
 Status:                   IN_TRANSIT
 Type of cargo:            CONTAINER
-Weight of cargo:          4166.6 kg
-Planned days to unload:   13
-Actual days to unload:    22
+Weight of cargo:          4677.1 kg
+Planned days to unload:   16
+Actual days to unload:    20
 
-Date of arrival:          22:11:2020
-Deviated date of arrival: 15:11:2020
-Time of arrival:          22:00:56
-Vessel name:              Bulkvessel4
+Date of arrival:          06:12:2020
+Deviated date of arrival: 12:12:2020
+Time of arrival:          08:22:54
+Vessel name:              Cargovessel6
+Status:                   IN_TRANSIT
+Type of cargo:            CONTAINER
+Weight of cargo:          2193.0 kg
+Planned days to unload:   16
+Actual days to unload:    16
+
+Date of arrival:          06:12:2020
+Deviated date of arrival: 02:12:2020
+Time of arrival:          15:54:37
+Vessel name:              Cargovessel9
+Status:                   IN_TRANSIT
+Type of cargo:            CONTAINER
+Weight of cargo:          3971.9 kg
+Planned days to unload:   15
+Actual days to unload:    16
+
+Date of arrival:          06:12:2020
+Deviated date of arrival: 09:12:2020
+Time of arrival:          18:36:20
+Vessel name:              Cargovessel1
+Status:                   IN_TRANSIT
+Type of cargo:            CONTAINER
+Weight of cargo:          2729.0 kg
+Planned days to unload:   14
+Actual days to unload:    23
+
+Date of arrival:          09:12:2020
+Deviated date of arrival: 05:12:2020
+Time of arrival:          19:53:52
+Vessel name:              Cargovessel5
+Status:                   IN_TRANSIT
+Type of cargo:            CONTAINER
+Weight of cargo:          4058.0 kg
+Planned days to unload:   15
+Actual days to unload:    19
+
+Date of arrival:          10:12:2020
+Deviated date of arrival: 15:12:2020
+Time of arrival:          21:20:00
+Vessel name:              Bulkvessel2
 Status:                   IN_TRANSIT
 Type of cargo:            BULK
-Weight of cargo:          1294.1000000000001 kg
-Planned days to unload:   18
+Weight of cargo:          1123.9 kg
+Planned days to unload:   16
 Actual days to unload:    24
 
-Date of arrival:          25:11:2020
-Deviated date of arrival: 29:11:2020
-Time of arrival:          12:26:03
+Date of arrival:          12:12:2020
+Deviated date of arrival: 15:12:2020
+Time of arrival:          09:54:22
+Vessel name:              Cargovessel8
+Status:                   IN_TRANSIT
+Type of cargo:            CONTAINER
+Weight of cargo:          1239.2 kg
+Planned days to unload:   13
+Actual days to unload:    14
+
+Date of arrival:          17:12:2020
+Deviated date of arrival: 16:12:2020
+Time of arrival:          03:07:48
+Vessel name:              Cargovessel4
+Status:                   IN_TRANSIT
+Type of cargo:            CONTAINER
+Weight of cargo:          1377.1000000000001 kg
+Planned days to unload:   14
+Actual days to unload:    16
+
+Date of arrival:          18:12:2020
+Deviated date of arrival: 21:12:2020
+Time of arrival:          09:04:16
+Vessel name:              Liquidvessel5
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          2370.9 kg
+Planned days to unload:   19
+Actual days to unload:    21
+
+Date of arrival:          18:12:2020
+Deviated date of arrival: 12:12:2020
+Time of arrival:          19:48:59
+Vessel name:              Liquidvessel6
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          1101.5 kg
+Planned days to unload:   19
+Actual days to unload:    24
+
+Date of arrival:          20:12:2020
+Deviated date of arrival: 26:12:2020
+Time of arrival:          14:50:32
+Vessel name:              Liquidvessel2
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          3007.2000000000003 kg
+Planned days to unload:   18
+Actual days to unload:    20
+
+Date of arrival:          21:12:2020
+Deviated date of arrival: 19:12:2020
+Time of arrival:          20:05:55
+Vessel name:              Liquidvessel4
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          4971.200000000001 kg
+Planned days to unload:   19
+Actual days to unload:    20
+
+Date of arrival:          21:12:2020
+Deviated date of arrival: 17:12:2020
+Time of arrival:          23:14:05
+Vessel name:              Liquidvessel7
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          3513.2000000000003 kg
+Planned days to unload:   15
+Actual days to unload:    22
+
+Date of arrival:          23:12:2020
+Deviated date of arrival: 19:12:2020
+Time of arrival:          03:39:43
+Vessel name:              Cargovessel2
+Status:                   IN_TRANSIT
+Type of cargo:            CONTAINER
+Weight of cargo:          2839.7000000000003 kg
+Planned days to unload:   13
+Actual days to unload:    16
+
+Date of arrival:          23:12:2020
+Deviated date of arrival: 21:12:2020
+Time of arrival:          13:47:59
 Vessel name:              Liquidvessel1
 Status:                   IN_TRANSIT
 Type of cargo:            LIQUID
-Weight of cargo:          2015.1000000000001 kg
+Weight of cargo:          3694.7000000000003 kg
 Planned days to unload:   15
-Actual days to unload:    23
+Actual days to unload:    19
+
+Date of arrival:          23:12:2020
+Deviated date of arrival: 18:12:2020
+Time of arrival:          19:33:23
+Vessel name:              Liquidvessel3
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          3510.0 kg
+Planned days to unload:   19
+Actual days to unload:    19
+
+Date of arrival:          26:12:2020
+Deviated date of arrival: 19:12:2020
+Time of arrival:          18:38:03
+Vessel name:              Bulkvessel1
+Status:                   IN_TRANSIT
+Type of cargo:            BULK
+Weight of cargo:          3433.4 kg
+Planned days to unload:   13
+Actual days to unload:    22
+
+Date of arrival:          27:12:2020
+Deviated date of arrival: 29:12:2020
+Time of arrival:          08:59:51
+Vessel name:              Liquidvessel8
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          3950.9 kg
+Planned days to unload:   19
+Actual days to unload:    21
+
+Date of arrival:          27:12:2020
+Deviated date of arrival: 25:12:2020
+Time of arrival:          13:31:50
+Vessel name:              Liquidvessel9
+Status:                   IN_TRANSIT
+Type of cargo:            LIQUID
+Weight of cargo:          4129.1 kg
+Planned days to unload:   19
+Actual days to unload:    22
 

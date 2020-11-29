@@ -13,7 +13,7 @@ public class LiquidCrane extends Crane{
 
     public String takenBy() {
         if (takenBy != null)
-            return "Liquid Crane \t#" + id + " taken by " +
+            return "Liq  Crane \t#" + id + " taken by " +
                     takenBy.getVesselName() + " \t" + takenBy.getType();
 
         return "Liquid Crane #" + id + " taken by none";

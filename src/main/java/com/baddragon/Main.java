@@ -47,16 +47,19 @@ public class Main {
         while (newPenalty != lastPenalty){
             lastPenalty = newPenalty;
             Map<TypeOfCargo, Integer> penalties = Port.getInstance().getPenaltyMap();
+            int cont = Port.getInstance().getContainerCapacity();
+            int liq  = Port.getInstance().getLiquidCapacity();
+            int bulk = Port.getInstance().getBulkCapacity();
             if(penalties.get(TypeOfCargo.LIQUID) != 0) {
-                Port.getInstance().setLiquidCapacity(Port.getInstance().getLiquidCapacity() + 1);
+                liq++;
             }
             if(penalties.get(TypeOfCargo.BULK) != 0) {
-                Port.getInstance().setBulkCapacity(Port.getInstance().getBulkCapacity() + 1);
+                bulk++;
             }
             if(penalties.get(TypeOfCargo.CONTAINER) != 0) {
-                Port.getInstance().setContainerCapacity(Port.getInstance().getContainerCapacity() + 1);
+                cont++;
             }
-
+            Port.reinstantiate(cont, liq, bulk);
             Port.getInstance().setSchedule(schedule);
             Port.getInstance().start();
             newPenalty = Port.getInstance().getPenalty();

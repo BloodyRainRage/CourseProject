@@ -9,20 +9,21 @@ import com.baddragon.Schedule.Entry;
 import com.baddragon.Vessel.TypeOfCargo;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class Port {
 
-    private static Port instance = new Port();
+    private static Port instance = new Port(1,1,1);
     private int containerCapacity, liquidCapacity, bulkCapacity;
     private List<Crane> busyCranes = new LinkedList<>();
+
+
 
     private Map<TypeOfCargo, List<Crane>> cranes = new HashMap<>();
     private Map<TypeOfCargo, List<Entry>> queue = new HashMap<>();
     private List<Entry> schedule;
 
-    Logger logger = new Logger();
+    static Logger logger = new Logger();
 
     private Long startDay;
     private Long endDay; //30 days after start
@@ -34,7 +35,19 @@ public class Port {
     int penalty = 0;
     private Map<TypeOfCargo, Integer> amountOfEachType = new HashMap<>();
 
-    private Port() {
+    private Port(int containerCapacity,
+                 int liquidCapacity,
+                 int bulkCapacity) {
+
+        ContainerCrane.lastId = 0;
+        LiquidCrane.lastId = 0;
+        BulkCrane.lastId = 0;
+
+
+        this.containerCapacity = containerCapacity;
+        this.liquidCapacity = liquidCapacity;
+        this.bulkCapacity = bulkCapacity;
+
         cranes.put(TypeOfCargo.LIQUID, new LinkedList<>());
         cranes.put(TypeOfCargo.BULK, new LinkedList<>());
         cranes.put(TypeOfCargo.CONTAINER, new LinkedList<>());
@@ -42,10 +55,6 @@ public class Port {
         queue.put(TypeOfCargo.LIQUID, new LinkedList<>());
         queue.put(TypeOfCargo.BULK, new LinkedList<>());
         queue.put(TypeOfCargo.CONTAINER, new LinkedList<>());
-
-        containerCapacity = 1;
-        liquidCapacity = 1;
-        bulkCapacity = 1;
 
 
         for (int i = 0; i < containerCapacity; i++) {
@@ -84,6 +93,12 @@ public class Port {
     }
 
     public void start() {
+
+        System.out.println("---START INFO---");
+        System.out.println("CONT CAPACITY: " + getContainerCapacity());
+        System.out.println("LIQ  CAPACITY: " + getLiquidCapacity());
+        System.out.println("BULK CAPACITY: " + getBulkCapacity());
+        System.out.println("---------------");
         penalty = 0;
         penaltyMap.put(TypeOfCargo.LIQUID, 0);
         penaltyMap.put(TypeOfCargo.BULK, 0);
@@ -124,6 +139,13 @@ public class Port {
                 new Date(endDay),
                 incrementer);
         logger.writeCraneLog("\n----Next Record----\n");
+
+        System.out.println("---END INFO---");
+        System.out.println("CONT PENALTY: " + penaltyMap.get(TypeOfCargo.CONTAINER));
+        System.out.println("LIQ  PENALTY: " + penaltyMap.get(TypeOfCargo.LIQUID));
+        System.out.println("BULK PENALTY: " + penaltyMap.get(TypeOfCargo.BULK));
+        System.out.println("--------------");
+        System.out.println();
     }
 
     private void processQueue() {
@@ -200,8 +222,11 @@ public class Port {
             }
             if (busyCranes.get(i).getDaysPassed() >= busyCranes.get(i).getEntry().getDaysWithDelay()) {
                 idToRemove.add(i);
-                logger.writeCraneLog("[REL]  " + busyCranes.get(i).takenBy() + " was released on "
-                        + Entry.dateFormatter.format(new Date(today)));
+                Crane crane = busyCranes.get(i);
+                logger.writeCraneLog("[REL]  " + crane.takenBy() + " was released on "
+                        + Entry.dateFormatter.format(new Date(today)) + " days w/o delay " + crane.getEntry().getWillStayFor() +
+                        " days with delay " + crane.getEntry().getDaysWithDelay() +
+                        " days passed " + crane.getDaysPassed());
                 busyCranes.get(i).setFree();
             }
         }
@@ -226,7 +251,7 @@ public class Port {
         for (Crane crane : cranes.get(entry.getType())) {
             if (!crane.isTaken()) {
                 crane.setTaken(entry);
-                System.out.println(crane.takenBy());
+                System.out.println(crane.takenBy() + "\t on " + Entry.dateFormatter.format(new Date(today)));
                 logger.writeCraneLog("[TAKE] " + crane.takenBy() + " on " + Entry.dateFormatter.format(new Date(today)));
                 busyCranes.add(crane);
                 return 0;
@@ -278,6 +303,15 @@ public class Port {
             int val = amountOfEachType.get(entry.getType());
             amountOfEachType.put(entry.getType(), val + 1);
         }
+    }
+
+
+    public static void reinstantiate(int containerCapacity,
+                                     int liquidCapacity,
+                                     int bulkCapacity){
+
+    Port.instance = new Port(containerCapacity, liquidCapacity, bulkCapacity);
+
     }
 
     public Map<TypeOfCargo, Integer> getPenaltyMap() {

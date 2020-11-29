@@ -13,9 +13,13 @@ public class ContainerCrane extends Crane {
 
     public String takenBy() {
         if (takenBy != null)
-            return "Cargo Crane \t#" + id + " taken by " +
+            return "Cont Crane \t#" + id + " taken by " +
                     takenBy.getVesselName() + " \t" + takenBy.getType();
 
         return "Cargo Crane #" + id + " taken by none";
+    }
+
+    public static void dropLastId(){
+        lastId=0;
     }
 }
