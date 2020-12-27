@@ -2,7 +2,6 @@ package com.baddragon.Schedule.EntryFactory;
 
 import com.baddragon.Exceptions.UnknownTypeOfCargoException;
 import com.baddragon.Port.Port;
-import com.baddragon.Port.Port_INACTIVE;
 import com.baddragon.Schedule.Entry;
 import com.baddragon.Schedule.Status;
 import com.baddragon.Vessel.TypeOfCargo;
@@ -54,6 +53,7 @@ public class RandomEntryFactory implements EntryFactory {
                 .weight(getRandomWeight())
                 .willStayFor(willStay)
                 .status(Status.IN_TRANSIT)
+                .daysPassed(0)
                 .build();
 
     }
@@ -69,6 +69,7 @@ public class RandomEntryFactory implements EntryFactory {
                 .weight(getRandomWeight())
                 .willStayFor(willStay)
                 .status(Status.IN_TRANSIT)
+                .daysPassed(0)
                 .build();
     }
 
@@ -83,6 +84,7 @@ public class RandomEntryFactory implements EntryFactory {
                 .weight(getRandomWeight())
                 .willStayFor(willStay)
                 .status(Status.IN_TRANSIT)
+                .daysPassed(0)
                 .build();
     }
 

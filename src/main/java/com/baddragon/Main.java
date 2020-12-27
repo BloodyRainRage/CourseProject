@@ -18,7 +18,7 @@ public class Main {
         List<Entry> schedule = new LinkedList<>();
         RandomEntryFactory randomEntry = new RandomEntryFactory();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 30; i++) {
             try {
                 schedule.add(randomEntry.createEntry());
             } catch (UnknownTypeOfCargoException e) {

@@ -13,10 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Port {
 
-    private static Port instance = new Port(1,1,1);
+    private static Port instance = new Port(1, 1, 1);
     private int containerCapacity, liquidCapacity, bulkCapacity;
     private List<Crane> busyCranes = new LinkedList<>();
-
 
 
     private Map<TypeOfCargo, List<Crane>> cranes = new HashMap<>();
@@ -85,7 +84,7 @@ public class Port {
         return instance;
     }
 
-    public void setParameters(int incrementer, int liquidCapacity, int bulkCapacity, int containerCapacity){
+    public void setParameters(int incrementer, int liquidCapacity, int bulkCapacity, int containerCapacity) {
         this.incrementer = incrementer;
         setLiquidCapacity(liquidCapacity);
         setBulkCapacity(bulkCapacity);
@@ -104,7 +103,7 @@ public class Port {
         penaltyMap.put(TypeOfCargo.BULK, 0);
         penaltyMap.put(TypeOfCargo.CONTAINER, 0);
         today = startDay;
-        while (!schedule.isEmpty()) {
+        while (!schedule.isEmpty() || queueIsNotEmpty() || !busyCranes.isEmpty()) {
             processQueue();
             List<Integer> idToRemove = new LinkedList<>();
             for (int i = 0; i < schedule.size(); i++) {
@@ -123,14 +122,14 @@ public class Port {
             nextDay();
         }
 
-        while (queueIsNotEmpty()) {
-            processQueue();
-            nextDay();
-        }
-
-        while (!busyCranes.isEmpty()) {
-            nextDay();
-        }
+//        while (queueIsNotEmpty()) {
+//            processQueue();
+//            nextDay();
+//        }
+//
+//        while (!busyCranes.isEmpty()) {
+//            nextDay();
+//        }
 
         System.out.println(penalty);
         logger.writeStatistics(amountOfEachType, penaltyMap, cranes,
@@ -150,7 +149,8 @@ public class Port {
 
     private void processQueue() {
 
-        Set<TypeOfCargo> listOfTypes = queue.keySet();
+//        Set<TypeOfCargo> listOfTypes = queue.keySet();
+
 
         if (!queue.get(TypeOfCargo.LIQUID).isEmpty()) {
             List<Integer> idToRemove = new LinkedList<>();
@@ -212,10 +212,11 @@ public class Port {
     private void nextDay() {
         List<Integer> idToRemove = new ArrayList<>();
         for (int i = 0; i < busyCranes.size(); ++i) {
-            if (busyCranes.get(i).getEntry() == null) continue;
+            if (busyCranes.get(i).getEntry() == null) continue; //&!&!&!&
             busyCranes.get(i).completeDay(incrementer);
             if (busyCranes.get(i).getDaysPassed() > busyCranes.get(i).getEntry().getWillStayFor()) {
                 this.penalty += 1000;
+
                 int penalty = penaltyMap.get(busyCranes.get(i).getEntry().getType()) + 1000;
                 penaltyMap.put(busyCranes.get(i).getEntry().getType(), penalty);
 
@@ -228,6 +229,12 @@ public class Port {
                         " days with delay " + crane.getEntry().getDaysWithDelay() +
                         " days passed " + crane.getDaysPassed());
                 busyCranes.get(i).setFree();
+            }
+        }
+
+        for (TypeOfCargo type : Arrays.asList(TypeOfCargo.values())) {
+            for (Entry entry : queue.get(type)) {
+                entry.setDaysPassed(entry.getDaysPassed() + incrementer);
             }
         }
 
@@ -251,6 +258,15 @@ public class Port {
         for (Crane crane : cranes.get(entry.getType())) {
             if (!crane.isTaken()) {
                 crane.setTaken(entry);
+                if (crane.getDaysPassed() != 0) {
+                    if (crane.getDaysPassed() > entry.getWillStayFor()) {
+                        long localPenalty = (crane.getDaysPassed() - entry.getWillStayFor()) * 1000;
+                        this.penalty += localPenalty;
+
+                        int penalty = penaltyMap.get(entry.getType()) + (int) localPenalty;
+                        penaltyMap.put(entry.getType(), penalty);
+                    }
+                }
                 System.out.println(crane.takenBy() + "\t on " + Entry.dateFormatter.format(new Date(today)));
                 logger.writeCraneLog("[TAKE] " + crane.takenBy() + " on " + Entry.dateFormatter.format(new Date(today)));
                 busyCranes.add(crane);
@@ -294,7 +310,15 @@ public class Port {
     }
 
     public void setSchedule(List<Entry> schedule) {
-        this.schedule = new LinkedList<>(schedule);
+        this.schedule = new LinkedList<>();
+        try {
+            for (Entry entry : schedule) {
+                this.schedule.add((Entry) entry.clone());
+            }
+        } catch (CloneNotSupportedException ex){
+            ex.printStackTrace();
+        }
+
         logger.writeSchedule(schedule);
         for (TypeOfCargo type : TypeOfCargo.values()) {
             amountOfEachType.put(type, 0);
@@ -308,9 +332,9 @@ public class Port {
 
     public static void reinstantiate(int containerCapacity,
                                      int liquidCapacity,
-                                     int bulkCapacity){
+                                     int bulkCapacity) {
 
-    Port.instance = new Port(containerCapacity, liquidCapacity, bulkCapacity);
+        Port.instance = new Port(containerCapacity, liquidCapacity, bulkCapacity);
 
     }
 

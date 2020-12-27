@@ -16,7 +16,7 @@ import java.util.Timer;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Entry implements Comparable<Entry> {
+public class Entry implements Comparable<Entry>, Cloneable {
 
     public static DateFormat dateFormatter = new SimpleDateFormat("dd:MM:YYYY");
     public static DateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss");
@@ -30,12 +30,18 @@ public class Entry implements Comparable<Entry> {
     protected TypeOfCargo type;
     protected Double      weight;
 
-    protected Long        willStayFor; //planned amount of days until unload
+    protected Long        willStayFor; //planned amount of days until unload w/0 delay
 
-    protected Long        dayPassed; //days of unload passed
+    protected int         daysPassed; //days of unload passed
 
     protected Long        daysWithDelay; //how much the vessel will stay for unload after delay simulation
     protected Status      status;
+
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public Date getDateOfArrival(){
         return new Date(dateOfArrivalAsLong);

@@ -10,9 +10,9 @@ import com.baddragon.Vessel.TypeOfCargo;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Port_INACTIVE {
+public class Port_DEPRECATED {
 
-    private static Port_INACTIVE instance;
+    private static Port_DEPRECATED instance;
 
     private static int containerCapacity, liquidCapacity, bulkCapacity;
 
@@ -35,7 +35,7 @@ public class Port_INACTIVE {
 
     private Long penalty;
 
-    private Port_INACTIVE() {
+    private Port_DEPRECATED() {
         cranes.put(TypeOfCargo.LIQUID, new LinkedList<>());
         cranes.put(TypeOfCargo.BULK, new LinkedList<>());
         cranes.put(TypeOfCargo.CONTAINER, new LinkedList<>());
@@ -73,9 +73,9 @@ public class Port_INACTIVE {
 
     }
 
-    public static Port_INACTIVE getInstance() {
+    public static Port_DEPRECATED getInstance() {
         if (instance == null) {
-            instance = new Port_INACTIVE();
+            instance = new Port_DEPRECATED();
         }
         return instance;
     }
@@ -118,7 +118,7 @@ public class Port_INACTIVE {
         for (Crane crane : cranes.get(entry.getType())) {
             if (!crane.isTaken()) {
                 crane.setTaken(entry);
-                entry.setDayPassed(entry.getWillStayFor());
+//                entry.setDayPassed(entry.getWillStayFor());
                 entry.setDaysWithDelay(entry.getWillStayFor() + 1);
                 System.out.println(crane.takenBy());
                 schedule.remove(schedule.indexOf(entry));

@@ -17,6 +17,8 @@ public abstract class Crane {
     }
 
     public void setTaken(Entry entry) {
+        if(entry.getDaysPassed() != 0)
+            this.daysPassed = entry.getDaysPassed();
         taken = true;
         takenBy = entry;
     }
