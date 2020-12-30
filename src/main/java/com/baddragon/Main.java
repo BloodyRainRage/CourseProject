@@ -1,6 +1,7 @@
 package com.baddragon;
 
 import com.baddragon.Exceptions.UnknownTypeOfCargoException;
+import com.baddragon.Logger.Logger;
 import com.baddragon.Port.Port;
 import com.baddragon.Schedule.Entry;
 import com.baddragon.Schedule.EntryFactory.RandomEntryFactory;
@@ -18,7 +19,7 @@ public class Main {
         List<Entry> schedule = new LinkedList<>();
         RandomEntryFactory randomEntry = new RandomEntryFactory();
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 20; i++) {
             try {
                 schedule.add(randomEntry.createEntry());
             } catch (UnknownTypeOfCargoException e) {
@@ -26,11 +27,6 @@ public class Main {
             }
         }
 
-        //Port.setCapacity(5, 5,5 );
-
-//        System.out.println(new Date(Port_INACTIVE.getInstance().getStartDay()) + "\n" +
-//                           new Date(Port_INACTIVE.getInstance().getToday()) + "\n" +
-//                           new Date(Port_INACTIVE.getInstance().getEndDay()) + "\n" );
 
         Collections.sort(schedule);
         System.out.println("Random entry");
@@ -63,13 +59,9 @@ public class Main {
             Port.getInstance().setSchedule(schedule);
             Port.getInstance().start();
             newPenalty = Port.getInstance().getPenalty();
+
         }
 
-
-//        System.out.println(Port_INACTIVE.getInstance().getCargoQueue());
-
-//        Long startDay = new Date().getTime();
-//        System.out.println(new Date(startDay));
 
     }
 

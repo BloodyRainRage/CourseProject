@@ -106,7 +106,7 @@ public class RandomEntryFactory implements EntryFactory {
 
     private Long getRandomDateInRange() {
         return random.longs(Port.getInstance().getStartDay()+10,
-                Port.getInstance().getEndDay()-5)
+                Port.getInstance().getEndDay()-TimeUnit.DAYS.toMillis(7))
                 .findFirst()
                 .getAsLong();
     }

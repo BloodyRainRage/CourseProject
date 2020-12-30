@@ -103,6 +103,8 @@ public class Port {
         penaltyMap.put(TypeOfCargo.BULK, 0);
         penaltyMap.put(TypeOfCargo.CONTAINER, 0);
         today = startDay;
+
+
         while (!schedule.isEmpty() || queueIsNotEmpty() || !busyCranes.isEmpty()) {
             processQueue();
             List<Integer> idToRemove = new LinkedList<>();
@@ -122,16 +124,7 @@ public class Port {
             nextDay();
         }
 
-//        while (queueIsNotEmpty()) {
-//            processQueue();
-//            nextDay();
-//        }
-//
-//        while (!busyCranes.isEmpty()) {
-//            nextDay();
-//        }
-
-        System.out.println(penalty);
+        System.out.println("penalty: " + penalty);
         logger.writeStatistics(amountOfEachType, penaltyMap, cranes,
                 new Date(startDay),
                 new Date(today),

@@ -16,7 +16,7 @@ public class ContainerCrane extends Crane {
             return "Cont Crane \t#" + id + " taken by " +
                     takenBy.getVesselName() + " \t" + takenBy.getType();
 
-        return "Cargo Crane #" + id + " taken by none";
+        return "Cont Crane #" + id + " taken by none";
     }
 
     public static void dropLastId(){

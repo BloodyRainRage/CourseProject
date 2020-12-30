@@ -16,7 +16,7 @@ public class LiquidCrane extends Crane{
             return "Liq  Crane \t#" + id + " taken by " +
                     takenBy.getVesselName() + " \t" + takenBy.getType();
 
-        return "Liquid Crane #" + id + " taken by none";
+        return "Liq  Crane #" + id + " taken by none";
     }
 
 }

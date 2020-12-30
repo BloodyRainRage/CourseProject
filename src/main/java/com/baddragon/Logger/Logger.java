@@ -74,7 +74,7 @@ public class Logger {
             fileWriter.write("Incrementer " + incrementer + "\n");
             fileWriter.write("Amount of vehicles of each type:\n");
             for (TypeOfCargo type : types) {
-                fileWriter.write(type + " \t" + amountOfEach.get(type) + "\n");
+                fileWriter.write(type + "   \t" + amountOfEach.get(type) + "\n");
             }
 
             fileWriter.write("Penalties:\n");
